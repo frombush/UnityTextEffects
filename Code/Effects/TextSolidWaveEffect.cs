@@ -4,7 +4,7 @@ using TMPro;
 
 namespace Pacu.TextEffects
 {
-    [CreateAssetMenu(menuName = "TMPEffects/SolidWaveEffect")]
+    [CreateAssetMenu(menuName = "TextEffects/SolidWaveEffect")]
     public class TextSolidWaveEffect : TextEffect
     {
         [SerializeField] private float amplitude = 0f;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Pacu.TextEffects
 {
-    [CreateAssetMenu(menuName = "TMPEffects/ShakeEffect")]
+    [CreateAssetMenu(menuName = "TextEffects/ShakeEffect")]
     public class TextShakeEffect : TextEffect
     {
         [SerializeField] private float shakeMultiplier = 0f;
