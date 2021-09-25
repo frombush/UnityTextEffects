@@ -10,8 +10,8 @@ namespace Pacu.TextEffects
     {
         private List<LinkContainer> linkContainers = new List<LinkContainer>();
 
-        public TMP_Text textComponent { get; set; }
-        public bool hasTextChanged { get; set; }
+        public TMP_Text TextComponent { get; set; }
+        public bool HasTextChanged { get; set; }
 
         private void OnEnable()
         {
@@ -26,12 +26,12 @@ namespace Pacu.TextEffects
 
         private void ON_TEXT_CHANGED(Object obj)
         {
-            if (obj == textComponent) hasTextChanged = true;  
+            if (obj == TextComponent) HasTextChanged = true;  
         }
 
         private void Awake()
         {
-            textComponent = GetComponent<TMP_Text>();
+            TextComponent = GetComponent<TMP_Text>();
             StartCoroutine(ParseCoroutine());
         }
 
@@ -39,7 +39,7 @@ namespace Pacu.TextEffects
         {
             while (true)
             {
-                if (hasTextChanged)
+                if (HasTextChanged)
                 {
                     ParseText();
                 }
@@ -54,11 +54,11 @@ namespace Pacu.TextEffects
         /// </summary>
         private void ParseText()
         {
-            textComponent.ForceMeshUpdate();
+            TextComponent.ForceMeshUpdate();
             linkContainers.Clear();
 
             // Get all the links in textComponent
-            TMP_TextInfo textInfo = textComponent.textInfo;
+            TMP_TextInfo textInfo = TextComponent.textInfo;
             List<TMP_LinkInfo> linkInfos = new List<TMP_LinkInfo>();
             for (int i = 0; i < textInfo.linkCount; i++)
             {
