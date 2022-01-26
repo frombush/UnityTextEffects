@@ -1,13 +1,15 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 namespace PostPacu.TextEffects
 {
-    [CreateAssetMenu(menuName="Text Effects/Shake/Shake Effect", fileName="New Shake Effect")]
-    public class TextShakeEffect : TextEffect
-    {
-        [SerializeField] private float shakeMultiplier = 0f;
+    [CreateAssetMenu(menuName="Text Effects/Wave/Vertex Wave Effect", fileName="Vertex Wave Effect")]
+    public class TextVertexWaveEffect : TextEffect
+    {   
+        [SerializeField] private float amplitude = 0f;
+        [SerializeField] private float speedMultiplier = 0f;
+        [SerializeField] private float curveMultiplier = 0f;
 
         public override void ApplyEffect(TMP_Text textComponent, TextEffectsParser parser)
         {
@@ -16,7 +18,7 @@ namespace PostPacu.TextEffects
             int totalCharacterCount = TextEffectsUtility.GetTotalCharacterCount(textDatas);
             int textDataIndex = 0;
             int charIndex = 0;
-            
+
             for (int i = 0; i < totalCharacterCount; ++i)
             {
                 // If the charIndex is equal to the length of the current textData character count then we know that we have fully manipulated
@@ -26,6 +28,7 @@ namespace PostPacu.TextEffects
                     textDataIndex++;
                     charIndex = 0;
                 }
+
                 // Get the index of the current character that we want to animate
                 int index = textDatas[textDataIndex].startIndex + charIndex;
                 TMP_CharacterInfo charInfo = textInfo.characterInfo[index];
@@ -38,13 +41,12 @@ namespace PostPacu.TextEffects
                 if (!charInfo.isVisible)
                     continue;
                 
-                // Apply shake effect
-                Vector3 offset = new Vector3(Random.Range(-shakeMultiplier, shakeMultiplier), Random.Range(-shakeMultiplier, shakeMultiplier), 0f);
+                // Apply wave effect
                 for (int j = 0; j < 4; ++j)
                 {
                     int k = charInfo.vertexIndex + j;
                     Vector3 origin = meshInfo.vertices[k];
-                    meshInfo.vertices[k] = origin + offset;
+                    meshInfo.vertices[k] = origin + new Vector3(0f, Mathf.Sin(Time.time * speedMultiplier + origin.x * curveMultiplier) * amplitude, 0f);
                 }
             }
         }

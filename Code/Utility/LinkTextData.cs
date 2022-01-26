@@ -1,4 +1,4 @@
-namespace Pacu.TextEffects
+namespace PostPacu.TextEffects
 {
     /// <summary>
     /// Stores the index at which the characters inside a link starts and ends. 

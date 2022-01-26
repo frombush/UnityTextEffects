@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Pacu.TextEffects
+namespace PostPacu.TextEffects
 {
     [RequireComponent(typeof(TextEffectsParser), typeof(TMP_Text))]
     public class TextEffectsManager : MonoBehaviour

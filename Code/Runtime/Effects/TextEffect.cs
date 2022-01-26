@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Pacu.TextEffects
+namespace PostPacu.TextEffects
 {
     public abstract class TextEffect : ScriptableObject
     {

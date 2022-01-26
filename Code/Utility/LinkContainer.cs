@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Pacu.TextEffects
+namespace PostPacu.TextEffects
 {
     /// <summary>
     /// Contains a list of LinkTextDatas that all have the same ID.

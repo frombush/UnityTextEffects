@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Pacu.TextEffects
+namespace PostPacu.TextEffects
 {
     public static class TextEffectsUtility
     {
