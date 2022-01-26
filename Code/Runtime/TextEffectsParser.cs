@@ -6,33 +6,28 @@ using TMPro;
 namespace PostPacu.TextEffects
 {
     [RequireComponent(typeof(TMP_Text))]
-    public class TextEffectsParser : MonoBehaviour
+    public class TextEffectsParser
     {
         private List<LinkContainer> linkContainers = new List<LinkContainer>();
 
         public TMP_Text TextComponent { get; set; }
         public bool HasTextChanged { get; set; }
 
-        private void OnEnable()
+        public TextEffectsParser(MonoBehaviour caller, TMP_Text textComponent)
         {
-            // Subscribe to event fired when text object has been regenerated.
-            TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
+            TextComponent = textComponent;
+            caller.StartCoroutine(ParseCoroutine());
         }
 
-        private void OnDisable()
-        {
-            TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
-        }
+        // Subscribe to event fired when text object has been regenerated.
+        public void OnEnable() => TMPro_EventManager.TEXT_CHANGED_EVENT.Add(ON_TEXT_CHANGED);
+
+        public void OnDisable() => TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(ON_TEXT_CHANGED);
 
         private void ON_TEXT_CHANGED(Object obj)
         {
-            if (obj == TextComponent) HasTextChanged = true;  
-        }
-
-        private void Awake()
-        {
-            TextComponent = GetComponent<TMP_Text>();
-            StartCoroutine(ParseCoroutine());
+            if (obj == TextComponent) 
+                HasTextChanged = true;  
         }
 
         private IEnumerator ParseCoroutine()

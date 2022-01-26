@@ -4,7 +4,8 @@ using TMPro;
 
 namespace PostPacu.TextEffects
 {
-    [RequireComponent(typeof(TextEffectsParser), typeof(TMP_Text))]
+    [AddComponentMenu("TMPro Effects/Text Effects Manager")]
+    [RequireComponent(typeof(TMP_Text))]
     public class TextEffectsManager : MonoBehaviour
     {
         private TextEffectsParser parser;
@@ -15,9 +16,12 @@ namespace PostPacu.TextEffects
         private void Awake()
         {
             textComponent = GetComponent<TMP_Text>();
-            parser = GetComponent<TextEffectsParser>();
+            parser = new TextEffectsParser(this, textComponent);
         }
 
+        private void OnEnable() => parser.OnEnable();
+        private void OnDisable() => parser.OnDisable();
+        
         private void LateUpdate()
         {
             textComponent.ForceMeshUpdate();
