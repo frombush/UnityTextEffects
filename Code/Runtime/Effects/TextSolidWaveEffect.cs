@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Pacu.TextEffects
+namespace TextEffects
 {
     [CreateAssetMenu(menuName = "TextEffects/SolidWaveEffect")]
     public class TextSolidWaveEffect : TextEffect

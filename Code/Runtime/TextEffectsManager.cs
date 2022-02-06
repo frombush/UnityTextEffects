@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace PostPacu.TextEffects
+namespace TextEffects
 {
     [AddComponentMenu("TMPro Effects/Text Effects Manager")]
     [RequireComponent(typeof(TMP_Text))]

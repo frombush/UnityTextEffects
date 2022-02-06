@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace PostPacu.TextEffects
+namespace TextEffects
 {
     [RequireComponent(typeof(TMP_Text))]
     public class TextEffectsParser

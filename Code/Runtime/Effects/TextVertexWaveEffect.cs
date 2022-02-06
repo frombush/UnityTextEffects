@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace PostPacu.TextEffects
+namespace TextEffects
 {
     [CreateAssetMenu(menuName="Text Effects/Wave/Vertex Wave Effect", fileName="Vertex Wave Effect")]
     public class TextVertexWaveEffect : TextEffect

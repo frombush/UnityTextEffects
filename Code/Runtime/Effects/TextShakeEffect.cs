@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace PostPacu.TextEffects
+namespace TextEffects
 {
     [CreateAssetMenu(menuName="Text Effects/Shake/Shake Effect", fileName="New Shake Effect")]
     public class TextShakeEffect : TextEffect
